@@ -1,0 +1,306 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="" xmlns="//www.w3.org/1999/xhtml"
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ciklum email signature</title>
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="form-validation/css/formvalidation.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="owl-carousel/css/owl.carousel.css">
+        <link rel="stylesheet" href="owl-carousel/css/owl.theme.default.css">
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+        <!--[if gte mso 9]><xml>
+          <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+        </xml><![endif]-->
+
+
+        
+
+    </head>
+    <body ng-app="signatureConstructor" ng-controller="generator">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <img src="//www.ciklum.com/ciklum-brand/ciklum-logo-light.png" class="img-reponsive top-logo" alt="Ciklum logo">
+                </div><!-- col-md-8 -->
+            </div><!-- row -->
+        </div><!-- container -->
+
+        <section class="owl-carousel">
+            <div class="item intro">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4 from_left">
+                            <p class="title">Ciklum Email<br>Signature Generator</p>
+                            <p class="description">To make Ciklum’s email signature, please follow all tips that will appear.</p>
+                            <button id="go-generate">Generate now</button>
+                        </div><!-- col-md-4 -->
+                        <div class="col-xs-12 col-md-8 from_right">
+                            <img src="//ciklum.com/email-signature/img/laptop.png" class="img-reponsive">
+                        </div><!-- col-md-8 -->
+                    </div><!-- row -->
+                </div><!-- container -->
+            </div><!-- item -->
+            <div class="item">
+            
+
+
+
+
+            <div class="container">
+                <div class="row">
+
+
+                <section class="input-form col-xs-12 col-md-5"
+                            data-fv-message="This value is not valid"
+                            data-fv-icon-valid="glyphicon glyphicon-ok"
+                            data-fv-icon-invalid="glyphicon glyphicon-remove"
+                            data-fv-icon-validating="glyphicon glyphicon-refresh">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                            <form>
+                                <div class="form-group">
+                                        <div class="btn-group">
+                                          <button type="button" class="btn btn-default dropdown-toggle department" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Select your department <span class="caret"></span>
+                                          </button>
+                                          <ul class="dropdown-menu depts">
+                                            <li ng-repeat="department in departments"><button ng-click="setDepartment(department)">{{department.name}}</button></li>
+                                          </ul>
+                                        </div>
+                                </div><!-- form-group -->
+                                
+                                <div class="form-group">
+                                        <input type="text" name="firstName" class="form-control" ng-model="name" placeholder="Full name" data-fv-trigger="keyup" required data-fv-notempty-message="The first name is required and cannot be empty">
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                        <input type="text" name="position" class="form-control" ng-model="position" placeholder="Position" data-fv-trigger="keyup" required data-fv-notempty-message="Position is required and cannot be empty">
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                        <input type="tel" class="form-control" ng-model="mainPhone" placeholder="Mobile phone">
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                        <input type="tel" class="form-control" ng-model="additionalPhone" placeholder="Landline phone">
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                        <input type="text" class="form-control" ng-model="skype" placeholder="Skype">
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                        <div class="btn-group">
+                                          <button type="button" class="btn btn-default dropdown-toggle office" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Select your office <span class="caret"></span>
+                                          </button>
+                                          <ul class="dropdown-menu">
+                                            <li ng-repeat="office in locations"><button ng-click="setOffice(office)">{{office.name}}</button></li>
+                                          </ul>
+                                        </div>
+                                </div><!-- form-group -->
+
+                                <button id="generate" class="btn btn-default done-button start-instruction">Show instruction</button>
+                                <div class="copy-btn not-visible done-button start-copying" data-clipboard-action="copy" data-clipboard-target="#generated-signature">
+                                    Copy result
+                                </div><!-- copy-btn -->
+                                </form>
+
+
+
+
+                            </div><!-- col-xs-12 -->
+
+                        </div><!-- row -->
+                    </div><!-- container -->
+                </section><!-- input-form -->
+
+
+                <section class="signature-preview col-xs-12 col-md-6 col-md-offset-1">
+                    <!--<div class="container">-->
+                        <div class="row">
+                            <div class="col-xs-12">
+
+
+                                    <table style="float: left; direction: ltr;">
+    <!--[if gte mso 9]><xml>
+              <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+              </o:OfficeDocumentSettings>
+            </xml><![endif]-->
+                                    <tr>
+    <th style="width: 45%; text-align: right;">
+                                            <img style="display: inline; width: 100%; max-width: 200px;" ng-cloak ng-src="{{department.logoUrl}}" ng-show="department.logoUrl" class="logo">
+                                            <p class="social" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 10px 0 0 0;">
+                                                <a target="_blank" href="//www.facebook.com/ciklum" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline; width: 20px;" src="img/social/facebook.png"></a>
+                                                <a target="_blank" href="//www.linkedin.com/company/ciklum" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline; width: 20px;" src="img/social/linkedin.png"></a>
+                                                <a target="_blank" href="//twitter.com/ciklum" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline; width: 20px;" src="img/social/twitter.png"></a>
+                                            </p>
+                                            <p class="website"><a href="//www.ciklum.com/">www.Ciklum.com</a></p>
+    </th>
+                                        <th style="width: 55%;" class="bordered">
+                                            <p class="name" ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0;">{{name}}</p>
+                                            <p class="position" ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #ff8800; margin: 0;">{{position}}</p>
+                                            <p class="name slogan" ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0; margin-top: 1px; font-size: 11px;">{{department.slogan}}</p>
+                                            <p class="phone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 12px 0 0 0;">
+                                                <span ng-show="mainPhone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline;" src="//ciklum.com/email-signature/img/icons/cell_phone.png"></span> <span  ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;">{{mainPhone}}</span>
+                                            </p>
+                                            <p class="phone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0;">
+                                                <span ng-show="additionalPhone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline;" src="//ciklum.com/email-signature/img/icons/landline.png"></span> <span  ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;">{{additionalPhone}}</span>
+                                            </p>
+                                            <p class="skype" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0;">
+                                                <span ng-show="skype" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline;" src="//ciklum.com/email-signature/img/icons/skype.png" ng-show="skype"></span> <span ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;">{{skype}}</span>
+                                            </p>
+                                            <p ng-cloak class="address" ng-bind-html="office.address | sanitize" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 12px 0 0 0;"></p>
+                                        </th>                                    
+                                      </tr>
+                                      </table>
+                                      <a href="//www.ciklum.com/banner-link" class="banner-wrp"><img class="banner" style="width: 100%; height: 60px;" src="//ciklum.com/email-signature/img/banner.png"></a>
+
+
+
+
+
+<div class="generated-signature-wrapper">
+<div id="generated-signature">
+                                    <table style="float: left; direction: ltr;">
+    <!--[if gte mso 9]><xml>
+              <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+              </o:OfficeDocumentSettings>
+            </xml><![endif]-->
+                                    <tr>
+    <th style="width: 45%; text-align: right;">
+                                            <img style="display: inline; width: 100%; max-width: 200px;" ng-cloak ng-src="{{department.logoUrl}}" ng-show="department.logoUrl" class="logo">
+                                            <p class="social" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 10px 0 0 0;">
+                                                <a target="_blank" href="//www.facebook.com/ciklum" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline; width: 20px;" src="img/social/facebook.png"></a>
+                                                <a target="_blank" href="//www.linkedin.com/company/ciklum" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline; width: 20px;" src="img/social/linkedin.png"></a>
+                                                <a target="_blank" href="//twitter.com/ciklum" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline; width: 20px;" src="img/social/twitter.png"></a>
+                                            </p>
+                                            <p class="website"><a href="//www.ciklum.com/">www.Ciklum.com</a></p>
+    </th>
+                                        <th style="width: 55%;" class="bordered">
+                                            <p class="name" ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0;">{{name}}</p>
+                                            <p class="position" ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #ff8800; margin: 0;">{{position}}</p>
+                                            <p class="name slogan" ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0; margin-top: 1px; font-size: 11px;">{{department.slogan}}</p>
+                                            <p class="phone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 12px 0 0 0;">
+                                                <span ng-show="mainPhone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline;" src="//ciklum.com/email-signature/img/icons/cell_phone.png"></span> <span  ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;">{{mainPhone}}</span>
+                                            </p>
+                                            <p class="phone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0;">
+                                                <span ng-show="additionalPhone" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline;" src="//ciklum.com/email-signature/img/icons/landline.png"></span> <span  ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;">{{additionalPhone}}</span>
+                                            </p>
+                                            <p class="skype" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 0;">
+                                                <span ng-show="skype" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;"><img style="display: inline;" src="//ciklum.com/email-signature/img/icons/skype.png" ng-show="skype"></span> <span ng-cloak style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555;">{{skype}}</span>
+                                            </p>
+                                            <p ng-cloak class="address" ng-bind-html="office.address | sanitize" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300; color: #555; margin: 12px 0 0 0;"></p>
+                                        </th>                                    
+                                      </tr>
+                                      </table>
+                                      <a href="//www.ciklum.com/banner-link" class="banner-wrp"><img class="banner-real" style="width: 100%; height: 60px;" src="//ciklum.com/email-signature/img/banner.png"></a>
+                                  </div><!-- generated-signature" -->
+</div><!-- generate-signature-wrapper -->
+
+
+
+
+                            </div><!-- col-xs-12 -->
+                        </div><!-- row -->
+                    <!--</div> container -->
+                </section><!-- signature-preview -->
+
+                <section class="instruction col-xs-12 col-md-6 col-md-offset-1 not-done">
+                    <!--<div class="container">-->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="alert alert-success" role="alert">
+                                    <strong>Well done!</strong> Now select your signature, copy (ctrl-c/cmd-c) and paste into your email client (better using Chrome).
+                                </div>
+                                <button id="dummies-video" type="button" class="btn btn-default" data-toggle="modal" data-target="#dummies-video-instruction">
+                                  Show me how to do this
+                                </button>
+                                <br>
+                                <p>Useful links:</p>
+                                <p><a class="dummies" target="_blank" href="//support.google.com/mail/answer/8395?hl=en">How to set up signature in Gmail?</a></p>
+                                <p><a class="dummies" target="_blank" href="//support.office.com/en-nz/article/Create-and-add-an-e-mail-message-signature-0a81de87-0e98-4fc2-b724-bc2bec7a39ae">How to set up signature in Microsoft Outlook?</a></p>
+                            </div><!-- col-xs-12 -->
+                        </div><!-- row -->
+                    <!--</div> container -->
+                </section><!-- instruction -->
+
+                </div><!-- row -->
+            </div><!-- container -->
+
+            </div><!-- item -->
+        </section><!-- owl-carousel -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="dummies-video-instruction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">How to set your email signature?</h4>
+      </div>
+      <div class="modal-body">
+        <video controls>
+          <source src="video-instruction/email-signature-instruction.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Now i get it, thanks!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="form-validation/js/formvalidation.min.js"></script>
+        <script src="form-validation/js/formvalidation-bootstrap.min.js"></script>
+        <script src="owl-carousel/js/owl.carousel.js"></script>
+        <script src="js/clipboard.min.js"></script>
+        <script src="js/app.js"></script>
+
+        <script>
+            var clipboard = new Clipboard('.copy-btn');
+            clipboard.on('success', function(e) {
+                $(".start-copying").html("Done. Now you can paste it to email!")
+                $(".start-instruction").css("display", "none")
+            });
+
+            clipboard.on('error', function(e) {
+                console.log(e);
+            });
+        </script>
+
+    </body>
+</html>
